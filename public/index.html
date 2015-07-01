@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>KoalaQA</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- JS -->
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-route/angular-route.min.js" ></script>
+
+	<!-- ANGULAR CUSTOM -->
+	<script src="js/controllers/MainCtrl.js" ></script>
+	<script src="js/controllers/ProjetoCtrl.js" ></script>
+	<script src="js/services/ProjetoService.js" ></script>
+	<script src="js/appRoutes.js" ></script>
+	<script src="js/app.js" ></script>
+</head>
+<body ng-app="koalaQA" ng-controller="projetoController">
+	
+	<nav class="navbar navbar-static-top navbar-inverse ">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand">KoalaQA</a>
+			</div>
+
+			<ul class="nav navbar-nav">
+				<li><a href="/projetos">Projetos</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<!-- ANGULAR DYNAMIC CONTENT -->
+		<div ng-view></div>
+
+	</div>
+</body>
+</html>
