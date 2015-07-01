@@ -17,11 +17,8 @@ node server.js
 ```
 
 ----
-Este é um trabalho acadêmico para a disciplina de [Engenharia de Software](http://www.cc.ufrrj.br/graduacao/disciplinas/im866/)
-
-Professora [Natália Schots](http://www.cc.ufrrj.br/equipe/schots/)
-
-[Curso de Ciência da Computação](http://ufrrj.br/portal/modulo/home/index.php)
-
+Este é um trabalho acadêmico para a disciplina de [Engenharia de Software](http://www.cc.ufrrj.br/graduacao/disciplinas/im866/)<br>
+Professora [Natália Schots](http://www.cc.ufrrj.br/equipe/schots/)<br>
+[Curso de Ciência da Computação](http://ufrrj.br/portal/modulo/home/index.php)<br>
 [Universidade Federal Rural do Rio de Janeiro](http://www.ufrrj.br)
 
