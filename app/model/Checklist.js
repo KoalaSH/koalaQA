@@ -9,7 +9,7 @@ var ObjectId 	= Schema.Types.ObjectId;
 var ChecklistSchema = new Schema({
 	nome		: {type:String, required:true},
 	descricao	: String,
-	questoes	: [{type:ObjectId, ref='Questao'}]
+	questoes	: [{type:ObjectId, ref:'Questao'}]
 });
 
 module.exports = mongoose.model('Checklist', ChecklistSchema);

@@ -34,7 +34,7 @@ module.exports = {
 
 		newProjeto.save( function(err) {
 			if (err) {
-				response.send(err);
+				response.json({success:false,error:err});
 			} else{
 				response.json({ success : true, message : 'Projeto salvo com sucesso!'});
 			};

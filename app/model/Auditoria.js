@@ -10,7 +10,7 @@ var AuditoriaSchema = new Schema({
 	nome		: {type:String, required:true},
 	data		: Date,
 	tipo		: String,
-	auditavel	: {type:ObjectId, type:'ItemAuditavel'},
+	auditavel	: {type:ObjectId, ref:'ItemAuditavel'},
 	situacao	: String
 });
 
