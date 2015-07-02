@@ -6,8 +6,8 @@ Esta é uma ferramenta para auxiliar o processo de gerência de qualidade.
 Está sendo desenvolvida com o objetivo de atender as necessidades dos processos de gerência de qualidade do MPS.BR
 
 Pré-requisitos:
-* NodeJS
-* Bower
+* [NodeJS](https://nodejs.org/)
+* [Bower](http://bower.io/)
 
 Para começar:
 ```
