@@ -11,7 +11,7 @@ var PlanoDeAcaoSchema = new Schema({
 	descricao	: String,
 	inicio		: Date,
 	fim 		: Date,
-	acao 		: {type:ObjectId, ref:'Acao'}
+	acoes 		: [{type:ObjectId, ref:'Acao'}]
 });
 
 module.exports = mongoose.model('PlanoDeAcao', PlanoDeAcaoSchema);

@@ -10,8 +10,7 @@ var AcaoSchema = new Schema({
 	nome		: String,
 	responsavel	: {type:ObjectId, ref:'Participante'},
 	dataEntrega	: Date,
-	situacao	: String,
-	planoDeAcao	: {type:ObjectId, ref:'PlanoDeAcao'}
+	situacao	: String
 });
 
 module.exports = mongoose.model('Acao', AcaoSchema);

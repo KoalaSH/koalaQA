@@ -1,3 +1,4 @@
+/// <reference path="typings/node/node.d.ts"/>
 // SERVER.JS
 
 // modules

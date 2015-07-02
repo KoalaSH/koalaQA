@@ -1,16 +1,7 @@
 // app/controller/projetoHandler.js
 var Projeto = rootRequire('app/model/Projeto');
 var mongoose = require('mongoose');
-var ObjectId = mongoose.Schema.Types.ObjectId;
-/*module.exports = mongoose.model('Projeto', {
-	nome			: {type : String, required : true}, 
-	participantes	: [ObjectId],
-	fases			: [{
-		nome	: String,
-		inicio	: {type : Date, default : Date.now },
-		fim		: Date
-	}]
-});*/
+
 module.exports = {
 	listAll : function(response) {
 		Projeto.find( function(err, result) {
@@ -22,14 +13,15 @@ module.exports = {
 			}
 		});
 	},
-	createProjeto : function( reqBody, response ) {
+	
+	createProjeto : function( requestBody, response ) {
 		var newProjeto 		= new Projeto();
-		newProjeto.nome 	= reqBody.nome;
-		if (reqBody.participantes) {
-			newProjeto.participantes = reqBody.participantes;
+		newProjeto.nome 	= requestBody.nome;
+		if (requestBody.participantes) {
+			newProjeto.participantes = requestBody.participantes;
 		}
-		if (reqBody.fases) {
-			newProjeto.fases = reqBody.fases;
+		if (requestBody.fases) {
+			newProjeto.fases = requestBody.fases;
 		};
 
 		newProjeto.save( function(err) {
@@ -39,5 +31,56 @@ module.exports = {
 				response.json({ success : true, message : 'Projeto salvo com sucesso!'});
 			};
 		});
+	},
+	
+	getProjeto : function( idProjeto, response ) {
+		Projeto.findById(idProjeto, function(err, result) {
+			if (err) {
+				response.json({success:false, error:err});
+			} else{
+				if (result) {
+					response.json({success:true, resultado:result});
+				} else {
+					response.json({success:false, error:{message:'Projeto não encontrado.'}});
+				}
+			};
+		})
+	},
+
+	updateProjeto : function( idProjeto, requestBody, response )  {
+		console.log(requestBody);
+		Projeto.findById(idProjeto, function (err, result) {
+			if (err) {
+				response.json({success:false, error:err});
+			} else{
+				if (requestBody.nome != result.nome) {
+					result.nome = requestBody.nome;
+				}
+				if (requestBody.participantes != result.participantes) {
+					result.participantes = requestBody.participantes;
+				}
+				if (requestBody.fases != result.fases) {
+					result.fases = requestBody.fases;
+				}
+
+				result.save( function (err) {
+					if (err) {
+						response.json({success:false, error:err});
+					} else{
+						response.json({success:true, mensagem:"Projeto alterado com sucesso!"});
+					};
+				});
+			};
+		});
+	},
+
+	deleteProjeto : function (idProjeto, response) {
+		Projeto.findById( idProjeto ).remove(function (err ) {
+			if (err) {
+				response.json({success:false, error:err});
+			} else{
+				response.json({success:true, message:'Projeto removido com sucesso!'});
+			};
+		})
 	}
 };
