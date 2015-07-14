@@ -54,45 +54,85 @@ module.exports = function(app) {
 		Auditoria Router
 	*/
 	app.route('/api/auditoria')
-		.get()
-		.post();
+		.get(function( request, response ) {
+			auditoriaHandler.getAuditoria( response );
+		})
+		.post( function( request, response ) {
+			auditoriaHandler.createAcao( request.body, response);
+		});
 	app.route('/api/auditoria/:idAuditoria')
-		.get()
-		.put()
-		.delete();
+		.get( function( request, response ) {
+			auditoriaHandler.getAuditoria( request.params.idAuditoria, response );
+		})
+		.put( function( request, response ) {
+			auditoriaHandler.updateAuditoria( request.params.idAuditoria, request.body, response);
+		})
+		.delete( function( request, response ) {
+			auditoriaHandler.deleteAuditoria( request.params.idAuditoria, response);
+		});
 
 	/*
 		Checklist Router
 	*/
 	app.route('/api/checklist')
-		.get()
-		.post();
+		.get( function( request, response ) {
+			
+		})
+		.post( function( request, response ) {
+			
+		});
 	app.route('/api/checklist/:idChecklist')
-		.get()
-		.put()
-		.delete();
+		.get( function( request, response ) {
+			
+		})
+		.put( function( request, response ) {
+			
+		})
+		.delete( function( request, response ) {
+			
+		});
 
 	/*
 		Fase Router
 	*/
 	app.route('/api/fase')
-		.get()
-		.post();
+		.get( function( request, response ) {
+			
+		})
+		.post( function( request, response ) {
+			
+		});
 	app.route('/api/fase/:idFase')
-		.get()
-		.put()
-		.delete();
+		.get( function( request, response ) {
+			
+		})
+		.put( function( request, response ) {
+			
+		})
+		.delete( function( request, response ) {
+			
+		});
 
 	/*
 		ItemAuditavel Router
 	*/
 	app.route('/api/item_auditavel')
-		.get()
-		.post();
+		.get( function( request, response ) {
+			
+		})
+		.post( function( request, response ) {
+			
+		});
 	app.route('/api/item_auditavel/:idItemAuditavel')
-		.get()
-		.put()
-		.delete();
+		.get( function( request, response ) {
+			
+		})
+		.put( function( request, response ) {
+			
+		})
+		.delete( function( request, response ) {
+			
+		});
 
 	/*
 		Participante Routers
@@ -124,23 +164,43 @@ module.exports = function(app) {
 		PlanoDeAcao Router
 	*/
 	app.route('/api/plano_de_acao')
-		.get()
-		.post();
+		.get(function( request, response ) {
+			
+		})
+		.post(function( request, response ) {
+			
+		});
 	app.route('/api/plano_de_acao/:idPlanoDeAcao')
-		.get()
-		.put()
-		.delete();
+		.get(function( request, response ) {
+			
+		})
+		.put(function( request, response ) {
+			
+		})
+		.delete(function( request, response ) {
+			
+		});
 	
 	/*
 		PlanoDeQualidade Router
 	*/
 	app.route('/api/plano_de_qualidade')
-		.get()
-		.post();
+		.get( function( request, response ) {
+			
+		})
+		.post( function( request, response ) {
+			
+		});
 	app.route('/api/plano_de_qualidade/:idPlnaoDeQualidade')
-		.get()
-		.put()
-		.delete();
+		.get( function( request, response ) {
+			
+		})
+		.put( function( request, response ) {
+			
+		})
+		.delete( function( request, response ) {
+			
+		});
 
 	/*
 		Projeto Routers
@@ -173,12 +233,22 @@ module.exports = function(app) {
 		Questao Router
 	*/
 	app.route('/api/questao')
-		.get()
-		.post();
+		.get( function( request, response ) {
+			
+		})
+		.post( function( request, response ) {
+			
+		});
 	app.route('/api/questao/:idQuestao')
-		.get()
-		.put()
-		.delete();
+		.get( function( request, response ) {
+			
+		})
+		.put( function( request, response ) {
+			
+		})
+		.delete( function( request, response ) {
+			
+		});
 
 		
 	
