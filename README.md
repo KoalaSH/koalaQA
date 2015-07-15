@@ -8,6 +8,7 @@ Está sendo desenvolvida com o objetivo de atender as necessidades dos processos
 Pré-requisitos:
 * [NodeJS](https://nodejs.org/)
 * [Bower](http://bower.io/)
+* [MongoDB](https://www.mongodb.org/)
 
 Para começar:
 ```
