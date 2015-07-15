@@ -1,9 +1,12 @@
 // public/js/services/ProjetoService.js
-angular.module('ProjetoService', []).factory('Projeto', ['$http', function($http) {
+var koalaQA = angular.module('koalaQA');
+
+koalaQA.service('projetoService', ['$http', function($http) {
 
 	return {
 		get : function() {
-			return $http.get('/api/projeto');
+			result = $http.get('/api/projeto');
+			return result;
 		},
 
 		create : function( projetoData ) {

@@ -7,37 +7,50 @@
 	<title>KoalaQA</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 
 	<!-- JS -->
-	<script src="libs/angular/angular.min.js"></script>
-	<script src="libs/angular-route/angular-route.min.js" ></script>
-
+	<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+	<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="assets/libs/angular/angular.min.js"></script>
+	<script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js" ></script>
+	
 	<!-- ANGULAR CUSTOM -->
-	<script src="js/controllers/MainCtrl.js" ></script>
-	<script src="js/controllers/ProjetoCtrl.js" ></script>
-	<script src="js/services/ProjetoService.js" ></script>
-	<script src="js/appRoutes.js" ></script>
-	<script src="js/app.js" ></script>
+	<script src="app/app.routes.js" ></script>
+	<script src="app/app.module.js" ></script>
+	<script src="app/components/projeto/projetoController.js"></script>
+	<script src="app/components/projeto/projetoService.js"></script>
 </head>
-<body ng-app="koalaQA" ng-controller="projetoController">
+
+<body ng-app="koalaQA">
 	
 	<nav class="navbar navbar-static-top navbar-inverse ">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="/" class="navbar-brand">KoalaQA</a>
+				<a ui-sref="home" class="navbar-brand">KoalaQA</a>
 			</div>
 
 			<ul class="nav navbar-nav">
-				<li><a href="/projetos">Projetos</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Manutenção <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Auditoria</a></li>
+						<li><a href="#">Checklist</a></li>
+						<li><a href="#">Participante</a></li>
+						<li><a href="#">Plano de Ação</a></li>
+						<li><a href="#">Plano de Qualidade</a></li>
+						<li><a ui-sref="projetos">Projeto</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</nav>
-	<div class="container">
-		<!-- ANGULAR DYNAMIC CONTENT -->
-		<div ng-view></div>
 
-	</div>
+
+	<!-- <div class="container"> -->
+		<!-- ANGULAR DYNAMIC CONTENT -->
+		<div ui-view></div>
+	<!-- </div> -->
 </body>
 </html>

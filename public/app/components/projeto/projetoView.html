@@ -1,0 +1,20 @@
+<!-- public/views/projetos.html -->
+<div class="jumbotron text-center">
+	<h1>Projetos</h1>
+	<p>Lista de Projetos</p>	
+</div>
+
+<div class="container">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<td>Projeto</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="projeto in projetos.lista">
+				<td> {{projeto.nome}} </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
