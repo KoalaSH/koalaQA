@@ -11,10 +11,14 @@
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<strong>Projetos</strong>
+				<a ui-sref="projetos.list"><strong>Projetos</strong></a>
 			</div>
 			<div class="panel-body">
-				
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="projeto in home.projetos | limitTo:3" >
+						{{projeto.nome}}
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

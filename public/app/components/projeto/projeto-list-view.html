@@ -1,0 +1,24 @@
+<div class="col-md-6">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Projetos</strong>
+			<a class="fa fa-plus pull-right" ui-sref="projetos.incluir"></a>
+		</div>
+		<div class="panel-body">
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr>
+						<td><strong>Nome</strong></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="projeto in projetos.lista">
+						<td> {{projeto.nome}} </td>
+						<td> <a class="fa fa-pencil" ui-sref="projetos.manter({idProjeto:projeto._id})"></a> </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+				
+	</div>
+</div>

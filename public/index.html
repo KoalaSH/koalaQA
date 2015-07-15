@@ -8,6 +8,7 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/libs/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 
 	<!-- JS -->
@@ -21,6 +22,7 @@
 	<script src="app/app.module.js" ></script>
 	<script src="app/components/projeto/projetoController.js"></script>
 	<script src="app/components/projeto/projetoService.js"></script>
+	<script src="app/components/home/homeController.js"></script>
 </head>
 
 <body ng-app="koalaQA">
@@ -40,7 +42,7 @@
 						<li><a href="#">Participante</a></li>
 						<li><a href="#">Plano de Ação</a></li>
 						<li><a href="#">Plano de Qualidade</a></li>
-						<li><a ui-sref="projetos">Projeto</a></li>
+						<li><a ui-sref="projetos.list">Projeto</a></li>
 					</ul>
 				</li>
 			</ul>

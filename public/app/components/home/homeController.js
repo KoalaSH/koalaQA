@@ -1,6 +1,7 @@
 // public/js/controllers/MainController.js
+var koalaQA = angular.module('koalaQA');
 
-angular.module('MainCtrl', [])
-.controller('mainController', function($scope) {
-	$scope.tagline = 'To the moon and back!';
-});
+koalaQA.controller('homeController', ['$state', 'projetoList',
+function( $state, projetoList ) {
+	this.projetos = projetoList.data;
+}]);
