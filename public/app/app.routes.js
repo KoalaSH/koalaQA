@@ -1,10 +1,34 @@
 // public/js/appRoutes.js
+
+/**
+	Este módulo trata todas as rotas ou endereços e encaminha para o template e controller adequado
+	
+	@module appRoutes
+*/
 var appRoutes = angular.module('appRoutes', ['ui.router']);
 
 appRoutes.config( function($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.otherwise('/error');
+	/**
+		Este método encaminha para a URL passada como parâmetro sempre que uma rota não tratada é definida
+	*/
+	$urlRouterProvider.otherwise('/');
 
+	/**
+		O stateProvider é a classe onde definimos as rotas desejadas
+
+		Cada state é um estado definido, com uma URL própria e suas variáveis.
+
+		Os atributos de cada state são:
+			URL : que define o caminho do estado
+			templateUrl : que define o caminho do template que será mostrado na tela
+			resolve: as variáveis que serão injetadas no controller, isto permite que o controller
+				tenha as suas variáveis definidas sem a preocupação com a assincronicidade dos callbacks
+			controller: é o controller que será vinculado ao template
+			controllerAs: um nome user-friendly para o controller
+
+		@class stateProvider
+	*/
 	$stateProvider
 		.state('error', {
 			url: '/error',
