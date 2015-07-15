@@ -16,12 +16,14 @@ module.exports = function(app) {
 	/*
 		middleware to use for all requests
 		Will be used for authentication in the future
+
+		NOT IN USE AT THE MOMENT
 	*/
-	app.use(function(req, res, next) {
+	/*app.use(function(req, res, next) {
 	    // do logging
 	    console.log('API beeing used ...');
 	    next(); // make sure we go to the next routes and don't stop here
-	});
+	});*/
 
 	app.get('/api',	function(request, response) {
 		response.json({message : 'Welcome to our API!'});
