@@ -13,8 +13,9 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="projeto in projetos.lista">
-						<td> {{projeto.nome}} </td>
+						<td> <a ui-sref="projetos.detalhar({idProjeto:projeto._id})"> {{projeto.nome}} </a> </td>
 						<td> <a class="fa fa-pencil" ui-sref="projetos.manter({idProjeto:projeto._id})"></a> </td>
+						<td> <a href="" class="fa fa-trash" ng-click="projetos.excluir( projeto )"></a> </td>
 					</tr>
 				</tbody>
 			</table>

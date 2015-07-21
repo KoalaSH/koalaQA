@@ -1,0 +1,53 @@
+<div class="col-md-7">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Projeto {{projetos.projeto.nome}}</strong>
+			<div class="pull-right"><a ui-sref="projetos.manter({idProjeto:projetos.projeto._id})" class="fa fa-pencil"></a></div>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-2">
+					<strong>Nome:</strong>
+				</div>
+				<div class="col-md-10">
+					{{projetos.projeto.nome}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<strong>Fases:</strong>
+				</div>
+				<div class="col-md-10">
+					<accordion close-others="false">
+						<accordion-group ng-repeat="fase in projetos.projeto.fases" heading="{{fase.nome}}">
+							<div class="row">
+								<div class="col-md-2">
+									<strong>Nome:</strong>
+								</div>
+								<div class="col-md-10">
+									{{fase.nome}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									Início:
+								</div>
+								<div class="col-md-10">
+									{{fase.inicio}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									Fim:
+								</div>
+								<div class="col-md-10">
+									{{fase.fim}}
+								</div>
+							</div>
+						</accordion-group>
+					</accordion>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

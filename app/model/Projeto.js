@@ -8,7 +8,7 @@ var ObjectId 	= Schema.Types.ObjectId;
 /* DEFINE THE MODELS */
 // module.exports allow this file to pass the content to other files when called
 var ProjetoSchema = new Schema({
-	nome			: {type : String, required : true}, 
+	nome			: {type : String, required : true, unique : true}, 
 	participantes	: [{type:ObjectId, ref:'Participante'}],
 	fases			: [{type:ObjectId, ref:'Fase'}]
 });

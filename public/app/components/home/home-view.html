@@ -28,17 +28,25 @@
 				<strong>Auditorias</strong>
 			</div>
 			<div class="panel-body">
-				
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="auditoria in home.auditorias | limitTo:3" >
+						{{auditoria.nome}}
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<strong>Participantes</strong>
+				<strong>Planos de Qualidade</strong>
 			</div>
 			<div class="panel-body">
-				
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="planoQualidade in home.planos | limitTo:3" >
+						{{planoQualidade.nome}}
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

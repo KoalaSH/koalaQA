@@ -5,11 +5,12 @@
 var acaoHandler 		= rootRequire('app/controller/acaoHandler');
 var auditoriaHandler 	= rootRequire('app/controller/auditoriaHandler');
 var checklistHandler 	= rootRequire('app/controller/checklistHandler');
-var itemAuditavelHandler = rootRequire('app/controller/itemAuditavelHandler');
+var itemAuditavelHandler= rootRequire('app/controller/itemAuditavelHandler');
 var participanteHandler	= rootRequire('app/controller/participanteHandler');
 var planoDeAcaoHandler	= rootRequire('app/controller/planoDeAcaoHandler');
 var planoDeQualidadeHandler = rootRequire('app/controller/planoDeQualidadeHandler');
 var projetoHandler		= rootRequire('app/controller/projetoHandler');
+var faseHandler			= rootRequire('app/controller/faseHandler');
 
 module.exports = function(app) {
 	// define routes
@@ -19,11 +20,11 @@ module.exports = function(app) {
 
 		NOT IN USE AT THE MOMENT
 	*/
-	/*app.use(function(req, res, next) {
+	app.use(function(req, res, next) {
 	    // do logging
-	    console.log('API beeing used ...');
+	    console.log('[REQUEST] - path: ' + req.originalUrl);
 	    next(); // make sure we go to the next routes and don't stop here
-	});*/
+	});
 
 	app.get('/api',	function(request, response) {
 		response.json({message : 'Welcome to our API!'});
@@ -60,17 +61,17 @@ module.exports = function(app) {
 			auditoriaHandler.listAll( response );
 		})
 		.post( function(request, response ) {
-			auditoriaHandler.createAcao(request.body, response);
+			auditoriaHandler.createAuditoria(request.body, response);
 		});
 	app.route('/api/auditoria/:idAuditoria')
 		.get( function( request, response ) {
-			auditoriaHandler.getAcao( request.params.idAuditoria, response );
+			auditoriaHandler.getAuditoria( request.params.idAuditoria, response );
 		})
 		.put( function( request, response ) {
-			auditoriaHandler.updateAcao( request.params.idAuditoria, request.body, response );
+			auditoriaHandler.updateAuditoria( request.params.idAuditoria, request.body, response );
 		})
 		.delete( function( request, response ) {
-			auditoriaHandler.deleteAcao( request.params.idAuditoria, response );
+			auditoriaHandler.deleteAuditoria( request.params.idAuditoria, response );
 		});
 
 	/*
@@ -97,22 +98,27 @@ module.exports = function(app) {
 	/*
 		Fase Router
 	*/
+	app.route('/api/fase/buscar')
+		.post( function( request, response ) {
+			// console.log('SEARCH GET')
+			faseHandler.searchFase( request.body ,response);
+		});
 	app.route('/api/fase')
 		.get( function( request, response ) {
 			faseHandler.listAll( response );
 		})
 		.post( function(request, response ) {
-			faseHandler.createAcao(request.body, response);
+			faseHandler.createFase(request.body, response);
 		});
 	app.route('/api/fase/:idFase')
 		.get( function( request, response ) {
-			faseHandler.getAcao( request.params.idFase, response );
+			faseHandler.getFase( request.params.idFase, response );
 		})
 		.put( function( request, response ) {
-			faseHandler.updateAcao( request.params.idFase, request.body, response );
+			faseHandler.updateFase( request.params.idFase, request.body, response );
 		})
 		.delete( function( request, response ) {
-			faseHandler.deleteAcao( request.params.idFase, response );
+			faseHandler.deleteFase( request.params.idFase, response );
 		});
 
 	/*
@@ -123,17 +129,17 @@ module.exports = function(app) {
 			itemAuditavelHandler.listAll( response );
 		})
 		.post( function(request, response ) {
-			itemAuditavelHandler.createAcao(request.body, response);
+			itemAuditavelHandler.createItemAuditavel(request.body, response);
 		});
 	app.route('/api/item_auditavel/:idItemAuditavel')
 		.get( function( request, response ) {
-			itemAuditavelHandler.getAcao( request.params.idItemAuditavel, response );
+			itemAuditavelHandler.getItemAuditavel( request.params.idItemAuditavel, response );
 		})
 		.put( function( request, response ) {
-			itemAuditavelHandler.updateAcao( request.params.idItemAuditavel, request.body, response );
+			itemAuditavelHandler.updateItemAuditavel( request.params.idItemAuditavel, request.body, response );
 		})
 		.delete( function( request, response ) {
-			itemAuditavelHandler.deleteAcao( request.params.idItemAuditavel, response );
+			itemAuditavelHandler.deleteItemAuditavel( request.params.idItemAuditavel, response );
 		});
 
 	/*
@@ -191,17 +197,17 @@ module.exports = function(app) {
 			planoDeQualidadeHandler.listAll( response );
 		})
 		.post( function(request, response ) {
-			planoDeQualidadeHandler.createAcao(request.body, response);
+			planoDeQualidadeHandler.createPlanoDeQualidade(request.body, response);
 		});
 	app.route('/api/plano_de_qualidade/:idPlnaoDeQualidade')
 		.get( function( request, response ) {
-			planoDeQualidadeHandler.getAcao( request.params.idPlnaoDeQualidade, response );
+			planoDeQualidadeHandler.getPlanoDeQualidade( request.params.idPlnaoDeQualidade, response );
 		})
 		.put( function( request, response ) {
-			planoDeQualidadeHandler.updateAcao( request.params.idPlnaoDeQualidade, request.body, response );
+			planoDeQualidadeHandler.updatePlanoDeQualidade( request.params.idPlnaoDeQualidade, request.body, response );
 		})
 		.delete( function( request, response ) {
-			planoDeQualidadeHandler.deleteAcao( request.params.idPlnaoDeQualidade, response );
+			planoDeQualidadeHandler.deletePlanoDeQualidade( request.params.idPlnaoDeQualidade, response );
 		});
 
 	/*

@@ -32,7 +32,7 @@ module.exports = {
 			if (err) {
 				response.json({success:false,error:err});
 			} else{
-				response.json({ success : true, message : 'Checklist salvo com sucesso!'});
+				response.json({ success : true, idChecklist : newChecklist._id});
 			};
 		});
 	},

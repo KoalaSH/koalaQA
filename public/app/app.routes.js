@@ -9,6 +9,7 @@ var appRoutes = angular.module('appRoutes', ['ui.router']);
 
 appRoutes.config( function($stateProvider, $urlRouterProvider) {
 
+
 	/**
 		Este método encaminha para a URL passada como parâmetro sempre que uma rota não tratada é definida
 	*/
@@ -40,6 +41,9 @@ appRoutes.config( function($stateProvider, $urlRouterProvider) {
 			resolve : {
 				projetoList : ['projetoService', function( projetoService ) {
 					return projetoService.list();
+				}],
+				auditoriaList : ['auditoriaService', function( auditoriaService ) {
+					return auditoriaService.list();
 				}]
 			},
 			templateUrl	: 'app/components/home/home-view.html',
@@ -76,6 +80,20 @@ appRoutes.config( function($stateProvider, $urlRouterProvider) {
 			templateUrl : 'app/components/projeto/projeto-form-view.html',
 			controller 	: 'projetoController',
 			controllerAs: 'projetos'
+		})
+
+		.state('projetos.detalhar', {
+			url : '/detalhar/:idProjeto',
+			resolve : {
+				lista : function () {return[];},
+				projeto : ['$stateParams', 'projetoService', function( $stateParams, projetoService ) {
+					return projetoService.get($stateParams.idProjeto);
+				}]			
+			},
+			templateUrl : 'app/components/projeto/projeto-detail-view.html',
+			controller  : 'projetoController',
+			controllerAs: 'projetos'
+
 		})
 
 		.state('projetos.incluir', {

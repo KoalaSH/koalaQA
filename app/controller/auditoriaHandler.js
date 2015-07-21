@@ -35,7 +35,7 @@ module.exports = {
 			if (err) {
 				response.json({success:false,error:err});
 			} else{
-				response.json({ success : true, message : 'Auditoria salvo com sucesso!'});
+				response.json({ success : true, idAuditoria : newAuditoria._id});
 			};
 		});
 	},

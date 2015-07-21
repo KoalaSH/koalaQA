@@ -9,6 +9,7 @@ function( $state, projetoService, lista, projeto ) {
 
 		@attribute projeto
 	*/
+	this.manter = "";
 	this.projeto = {};
 	projetoData = projeto.data;
 
@@ -29,17 +30,28 @@ function( $state, projetoService, lista, projeto ) {
 		@method salvar
 	*/
 	this.salvar = function() {
-		if (projeto._id) {
+		if ( typeof this.projeto._id !== "undefined" ) {
 			projetoService.update( this.projeto )
 			.then( function() {
 				$state.go('projetos.list');
 			});
-		} else{
+		} else {
+			console.log(projeto);
 			projetoService.create( this.projeto )
 			.then( function() {
 				$state.go('projetos.list');
 			});
 		};
 	};
+
+	this.excluir = function( projeto ) {
+		bootbox.confirm("Você tem certeza que deseja excluir este proejto?", function(result) {
+			projetoService.delete( projeto._id )
+			.then( function() {
+				var index = lista.data.indexOf(projeto);
+				lista.data.splice(index, 1);
+			});
+		});
+	}
 
 }]);

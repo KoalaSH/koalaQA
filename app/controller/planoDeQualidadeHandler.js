@@ -36,7 +36,7 @@ module.exports = {
 			if (err) {
 				response.json({success:false,error:err});
 			} else{
-				response.json({ success : true, message : 'PlanoDeQualidade salvo com sucesso!'});
+				response.json({ success : true, idPlanoDeQualidade : newPlanoDeQualidade._id});
 			};
 		});
 	},

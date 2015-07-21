@@ -1,5 +1,6 @@
 var Fase = rootRequire('app/model/Fase');
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Schema.Types.ObjectId; 
 
 module.exports = {
 	listAll : function(response) {
@@ -31,7 +32,7 @@ module.exports = {
 			if (err) {
 				response.json({success:false,error:err});
 			} else{
-				response.json({ success : true, message : 'Fase salva com sucesso!'});
+				response.json({ success : true, idFase : newFase});
 			};
 		});
 	},
@@ -88,5 +89,25 @@ module.exports = {
 				response.json({success:true, message:'Fase removida com sucesso!'});
 			};
 		})
+	},
+
+	searchFase : function (requestBody, response) {
+		objectIdArray = requestBody.ids;
+
+		/*for (var i = 0; i < requestBody.ids.length -1; i++) {
+			objectIdArray.push(new ObjectId(requestBody.ids[i]));
+		};*/
+
+		Fase.find({
+				'_id' : { $in : objectIdArray}}, 
+			function( err, result) {
+				if (err) {
+					response.json({success:false, error:err, resultado:result});
+				} else{
+					response.json({success:true, resultado:result});
+				};
+			});
 	}
+
+
 }

@@ -26,13 +26,16 @@ module.exports = {
 		}
 		if (requestBody.versao) {
 			newItemAuditavel.versao = requestBody.versao;
+		}
+		if ( requestBody.produtos ) {
+			newItemAuditavel.produtos = requestBody.produtos;
 		};
 
 		newItemAuditavel.save( function(err) {
 			if (err) {
 				response.json({success:false,error:err});
 			} else{
-				response.json({ success : true, message : 'ItemAuditavel salvo com sucesso!'});
+				response.json({ success : true, idItemAuditavel : newItemAuditavel._id});
 			};
 		});
 	},
@@ -57,15 +60,18 @@ module.exports = {
 			if (err) {
 				response.json({success:false, error:err});
 			} else{
-				if (requestBody.nome != result.nome) {
+				if (requestBody.nome) {
 					result.nome = requestBody.nome;
 				}
-				if (requestBody.descricao != result.descricao) {
+				if (requestBody.descricao) {
 					result.descricao = requestBody.descricao;
 				}
-				if (requestBody.versao != result.versao) {
+				if (requestBody.versao) {
 					result.versao = requestBody.versao;
 				}
+				if ( requestBody.produtos ) {
+					result.produtos = requestBody.produtos;
+				};
 
 				result.save( function (err) {
 					if (err) {
